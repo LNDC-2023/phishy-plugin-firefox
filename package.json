@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@crxjs/vite-plugin": "^1.0.14",
+    "@samrum/vite-plugin-web-extension": "^5.0.0",
     "@sveltejs/adapter-auto": "^2.1.0",
     "@sveltejs/kit": "^1.26.0",
     "@types/webextension-polyfill": "^0.10.5",
