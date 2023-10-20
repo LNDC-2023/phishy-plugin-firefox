@@ -1,47 +1,32 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+    // @ts-ignore
+    import browser from "webextension-polyfill";
+    import "./app.css"
+
+    interface InjectorData {
+        mail: string | undefined,
+        content: string | undefined
+    }
+
+    let mailAddress: string = "";
+    let mailContent: string = "";
+
+    browser.storage.local.get().then((data: InjectorData) => {
+        data.mail && (mailAddress = data.mail)
+        data.content && (mailContent = data.content)
+        console.log(data.content?.trim())
+    })
 </script>
 
 <main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+    <div class="w-72 h-72">
+        Mail from
+        <span class="text-blue-500">
+            {mailAddress.slice(1, mailAddress.length - 1)}
+        </span>
+        <br/>
+        {mailContent.trim()}
+        <br/>
+        That seems phishy!
+    </div>
 </main>
-
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
