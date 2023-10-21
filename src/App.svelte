@@ -47,11 +47,11 @@
             <p class="text-3xl font-bold text-center">That seems a li'l phishy!</p>
             <Spacer/>
             <p class="text-xl font-bold">How to recognize phishing?</p>
-            <ol class="list-decimal list-inside mx-1">
+            <ol class="list-decimal pl-[1.5em] mx-1">
                 <li>Grammar mistakes</li>
                 <li>Written in a strange language</li>
                 <li>Your name is missing in the form of address</li>
-                <li>Supposedly there is urgent need for action</li>
+                <li>Seemingly urgent need for action</li>
                 <li>They're asking for personal data</li>
                 <li>They want to make you open a file</li>
                 <li>They want to make you open a link</li>
